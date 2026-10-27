@@ -8,6 +8,7 @@ import { useReady } from "./Ready";
 import { CandleIcon, useCart } from "./Cart";
 import { MusicToggle } from "./Music";
 import { Grass } from "./Decor";
+import { startScroll, stopScroll } from "@/lib/scroll";
 
 const ease = [0.76, 0, 0.24, 1] as const;
 
@@ -29,11 +30,11 @@ export function Header() {
   // меню открыто — страница не скроллится, Esc закрывает
   useEffect(() => {
     if (!open) return;
-    window.lenis?.stop();
+    stopScroll();
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
     window.addEventListener("keydown", onKey);
     return () => {
-      window.lenis?.start();
+      startScroll();
       window.removeEventListener("keydown", onKey);
     };
   }, [open]);

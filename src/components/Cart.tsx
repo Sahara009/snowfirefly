@@ -2,6 +2,7 @@
 
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from "react";
 import { collections, type Collection } from "@/data/site";
+import { startScroll, stopScroll } from "@/lib/scroll";
 
 type Line = { id: string; qty: number };
 
@@ -93,8 +94,8 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
       first.current = false;
       return;
     }
-    if (open) window.lenis?.stop();
-    else window.lenis?.start();
+    if (open) stopScroll();
+    else startScroll();
   }, [open]);
 
   return <Ctx.Provider value={value}>{children}</Ctx.Provider>;
@@ -126,10 +127,4 @@ export function CandleIcon({ lit, className = "" }: { lit: boolean; className?: 
       <rect x="6" y="36" width="20" height="3" rx="1.5" fill="#4f8a3c" />
     </svg>
   );
-}
-
-declare global {
-  interface Window {
-    lenis?: { stop: () => void; start: () => void };
-  }
 }

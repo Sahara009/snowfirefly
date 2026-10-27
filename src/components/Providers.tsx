@@ -7,6 +7,7 @@ import { ReadyContext } from "./Ready";
 import { Preloader } from "./Preloader";
 import { CartProvider } from "./Cart";
 import { CartDrawer } from "./CartDrawer";
+import { setScroller } from "@/lib/scroll";
 
 export function Providers({ children }: { children: React.ReactNode }) {
   const [ready, setReady] = useState(false);
@@ -23,7 +24,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
       touchMultiplier: 1.4,
     });
     lenisRef.current = lenis;
-    window.lenis = lenis;
+    setScroller(lenis);
     lenis.stop(); // пока идёт прелоадер
     let id = 0;
     const raf = (t: number) => {
@@ -50,7 +51,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
       cancelAnimationFrame(id);
       lenis.destroy();
       lenisRef.current = null;
-      window.lenis = undefined;
+      setScroller(null);
     };
   }, []);
 
