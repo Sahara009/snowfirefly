@@ -1,0 +1,12 @@
+# Netlify сам определит Next.js и подключит свой рантайм — publish указывать не нужно.
+[build]
+  command = "npm run build"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# админка Decap CMS: /admin → /admin/index.html
+[[redirects]]
+  from = "/admin"
+  to = "/admin/index.html"
+  status = 200

@@ -1,0 +1,98 @@
+{
+  "items": [
+    {
+      "id": "peony",
+      "title": "Пионы",
+      "text": "Свечи-бутоны: у каждого свои лепестки и свой характер.",
+      "tag": "Цветы",
+      "image": "/img/peony-lit.jpg",
+      "featured": true
+    },
+    {
+      "id": "rose",
+      "title": "Роза",
+      "text": "Объёмная роза с мягким градиентом на лепестках.",
+      "tag": "Цветы",
+      "image": "/img/rose.jpg",
+      "featured": true
+    },
+    {
+      "id": "dandelions",
+      "title": "Одуванчики",
+      "text": "Солнечный букет, перевязанный лентой.",
+      "tag": "Букеты",
+      "image": "/img/dandelions.jpg"
+    },
+    {
+      "id": "tarts",
+      "title": "Малиновые тарталетки",
+      "text": "Десертные свечи, от которых хочется взять ложечку.",
+      "tag": "Десерты",
+      "image": "/img/tarts-shelf-2.jpg",
+      "position": "50% 100%",
+      "featured": true
+    },
+    {
+      "id": "apples",
+      "title": "Яблоки",
+      "text": "Спелые яблоки с настоящим «надкусом».",
+      "tag": "Фигурные",
+      "video": "/video/apple-3.mp4",
+      "poster": "/video/apple-3.jpg",
+      "featured": true
+    },
+    {
+      "id": "pears",
+      "title": "Груши",
+      "text": "Румяные груши — россыпью или на подсвечнике.",
+      "tag": "Фигурные",
+      "image": "/img/pears.jpg"
+    },
+    {
+      "id": "sheep",
+      "title": "Барашки",
+      "text": "Пушистые облачка с колокольчиком и ленточкой.",
+      "tag": "Зверята",
+      "image": "/img/sheep.jpg",
+      "position": "50% 50%",
+      "featured": true
+    },
+    {
+      "id": "cats",
+      "title": "Котики-клоуны",
+      "text": "Расписаны вручную: у каждого свой наряд и характер.",
+      "tag": "Зверята",
+      "image": "/img/cats-trio.jpg",
+      "position": "50% 100%"
+    },
+    {
+      "id": "frog",
+      "title": "Болотная жабка",
+      "text": "Сидит на кувшинке и ждёт, когда её зажгут.",
+      "tag": "Зверята",
+      "image": "/img/frog.jpg",
+      "featured": true
+    },
+    {
+      "id": "mandarins",
+      "title": "Мандарины",
+      "text": "Новогодняя россыпь с дольками и белым налётом.",
+      "tag": "Новый год",
+      "image": "/img/mandarins.jpg"
+    },
+    {
+      "id": "snowman",
+      "title": "Снеговик на печенье",
+      "text": "Аромат печенья. Высота 4 см, диаметр 7 см.",
+      "tag": "Новый год",
+      "image": "/img/snowman-cookie.jpg"
+    },
+    {
+      "id": "autumn",
+      "title": "Сладкая осень и Тёплый сентябрь",
+      "text": "Аромат синабона и аромат яблока с корицей. В баночках, на натуральном соевом воске.",
+      "tag": "В баночках",
+      "image": "/img/autumn-jars.jpg"
+    }
+  ]
+}
