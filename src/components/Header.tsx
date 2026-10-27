@@ -147,51 +147,64 @@ export function Header() {
             transition={{ duration: 0.9, ease }}
             className="fixed inset-0 z-40 flex flex-col overflow-y-auto bg-gradient-to-br from-blush via-[#fde6ef] to-sage"
           >
-            <div className="mx-auto flex w-full max-w-7xl flex-1 flex-col justify-center px-5 pb-36 pt-24 md:px-8">
-              <ul className="space-y-1 md:space-y-2">
-                {nav.map((n, i) => (
-                  <li key={n.href} className="overflow-hidden">
-                    <motion.a
-                      href={n.href}
-                      onClick={() => setOpen(false)}
-                      initial={{ y: "110%" }}
-                      animate={{ y: 0 }}
-                      exit={{ y: "110%", transition: { duration: 0.3 } }}
-                      transition={{ duration: 0.8, delay: 0.25 + i * 0.06, ease: [0.22, 1, 0.36, 1] }}
-                      className="group flex items-baseline gap-4 font-serif text-[clamp(2.6rem,8vw,6.5rem)] leading-[1.05] transition-colors hover:text-rose"
-                    >
-                      <span className="w-10 font-sans text-sm text-grass md:w-14">
-                        {String(i + 1).padStart(2, "0")}
-                      </span>
-                      <span className="transition-all duration-500 group-hover:translate-x-3 group-hover:italic">
-                        {n.label}
-                      </span>
-                    </motion.a>
-                  </li>
-                ))}
-              </ul>
+            <div className="mx-auto grid w-full max-w-7xl flex-1 items-center gap-10 px-5 pb-8 pt-24 md:px-8 lg:grid-cols-12">
+              <div className="lg:col-span-7">
+                <ul>
+                  {nav.map((n, i) => (
+                    <li key={n.href} className="overflow-hidden border-b border-berry/10 last:border-0">
+                      <motion.a
+                        href={n.href}
+                        onClick={() => setOpen(false)}
+                        initial={{ y: "110%" }}
+                        animate={{ y: 0 }}
+                        exit={{ y: "110%", transition: { duration: 0.3 } }}
+                        transition={{ duration: 0.8, delay: 0.25 + i * 0.06, ease: [0.22, 1, 0.36, 1] }}
+                        className="group flex items-baseline gap-4 py-1.5 font-serif text-[clamp(2.1rem,min(5vw,7.5vh),4.5rem)] leading-[1.15] transition-colors hover:text-rose md:py-2"
+                      >
+                        <span className="w-8 shrink-0 font-sans text-xs text-grass md:w-12 md:text-sm">
+                          {String(i + 1).padStart(2, "0")}
+                        </span>
+                        <span className="transition-all duration-500 group-hover:translate-x-3 group-hover:italic">
+                          {n.label}
+                        </span>
+                      </motion.a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0 }}
-                transition={{ delay: 0.7, duration: 0.6 }}
-                className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-3 text-sm"
+                transition={{ delay: 0.6, duration: 0.7 }}
+                className="flex flex-col gap-8 lg:col-span-4 lg:col-start-9 lg:items-center lg:text-center"
               >
-                <a href={contacts.telegramNastya} target="_blank" rel="noreferrer" className="hover:text-rose">
-                  Telegram
-                </a>
-                <a href={contacts.whatsapp} target="_blank" rel="noreferrer" className="hover:text-rose">
-                  WhatsApp
-                </a>
-                <a href={contacts.instagram} target="_blank" rel="noreferrer" className="hover:text-rose">
-                  Instagram
-                </a>
-                <span className="font-hand text-2xl text-grass-deep">с любовью, Анастасия ♡</span>
+                <div className="polaroid relative hidden w-56 rotate-3 lg:block">
+                  <span className="tape -top-3 left-1/2 -translate-x-1/2 rotate-[-4deg]" />
+                  <div className="relative aspect-[4/5] overflow-hidden">
+                    <Image src="/img/peony-lit.jpg" alt="Свечи-пионы" fill sizes="224px" className="object-cover" />
+                  </div>
+                  <p className="absolute bottom-2.5 left-0 right-0 text-center font-hand text-xl text-berry/80">
+                    с любовью ♡
+                  </p>
+                </div>
+                <div className="flex flex-wrap items-center gap-x-6 gap-y-3 text-sm lg:justify-center">
+                  <a href={contacts.telegramNastya} target="_blank" rel="noreferrer" className="hover:text-rose">
+                    Telegram
+                  </a>
+                  <a href={contacts.whatsapp} target="_blank" rel="noreferrer" className="hover:text-rose">
+                    WhatsApp
+                  </a>
+                  <a href={contacts.instagram} target="_blank" rel="noreferrer" className="hover:text-rose">
+                    Instagram
+                  </a>
+                </div>
+                <span className="font-hand text-2xl text-grass-deep lg:hidden">с любовью, Анастасия ♡</span>
               </motion.div>
             </div>
-            <div className="pointer-events-none absolute inset-x-0 bottom-0">
-              <Grass />
+            <div className="pointer-events-none shrink-0">
+              <Grass className="h-[50px] md:h-[70px]" />
             </div>
           </motion.nav>
         )}

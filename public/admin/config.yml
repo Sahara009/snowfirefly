@@ -1,7 +1,7 @@
 # Админка Snowfirefly (Decap CMS). Открывается по адресу https://<сайт>/admin
 backend:
   name: github
-  repo: OWNER/snowfirefly # TODO: заменить на <ваш-github-логин>/<имя-репозитория>
+  repo: Sahara009/snowfirefly
   branch: main
 
 locale: ru
