@@ -112,6 +112,14 @@ export function CartDrawer() {
                             className="object-cover"
                             style={{ objectPosition: i.product.position }}
                           />
+                        ) : i.product.video ? (
+                          <video
+                            src={`${i.product.video}#t=0.1`}
+                            muted
+                            playsInline
+                            preload="metadata"
+                            className="absolute inset-0 size-full object-cover"
+                          />
                         ) : null}
                       </div>
                       <div className="flex flex-1 flex-col">

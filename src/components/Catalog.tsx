@@ -5,6 +5,7 @@ import { useMemo, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { SectionTitle } from "./SectionTitle";
 import { CandleIcon, useCart } from "./Cart";
+import { LoopVideo } from "./LoopVideo";
 import { collections } from "@/data/site";
 
 const fmt = (n: number) => n.toLocaleString("ru-RU") + " ₸";
@@ -67,7 +68,7 @@ export function Catalog() {
                   className="group flex flex-col"
                 >
                   <div className="relative aspect-[4/5] overflow-hidden rounded-[1.75rem] bg-blush">
-                    {img && (
+                    {img ? (
                       <Image
                         src={img}
                         alt={c.title}
@@ -76,7 +77,12 @@ export function Catalog() {
                         style={{ objectPosition: c.position }}
                         className="object-cover transition-transform duration-700 group-hover:scale-105"
                       />
-                    )}
+                    ) : c.video ? (
+                      <LoopVideo
+                        src={c.video}
+                        className="absolute inset-0 size-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                    ) : null}
                     {qty > 0 && (
                       <span className="absolute right-3 top-3 flex size-8 items-center justify-center rounded-full bg-grass-deep text-sm text-cream shadow">
                         {qty}

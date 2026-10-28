@@ -50,12 +50,12 @@ Build command: `STATIC_EXPORT=1 npm run build`, Output directory: `out`, пер�
 Netlify пересобирает сайт — новая свеча появляется через 1–2 минуты.
 
 Настройка (один раз, ~15 минут):
-1. В `public/admin/config.yml` заменить `repo: OWNER/snowfirefly` на `<логин>/<репозиторий>`, запушить.
+1. В `public/admin/config.yml` уже стоит `repo: Sahara009/snowfirefly` (если репозиторий другой — поменять и запушить).
 2. GitHub → Settings → Developer settings → OAuth Apps → New OAuth App:
    - Homepage URL: `https://snowfirefly.netlify.app`
    - Authorization callback URL: `https://api.netlify.com/auth/done`
    Сохранить Client ID и сгенерировать Client Secret.
-3. Netlify → Site configuration → Access & security → OAuth → Install provider → GitHub → вставить ID и Secret.
+3. Netlify → Project configuration → Security → OAuth → Authentication Providers → Install Provider → GitHub → вставить ID и Secret.
 4. У Насти должен быть аккаунт на GitHub; добавить её в репозиторий: Settings → Collaborators → Add people.
 5. Настя открывает `/admin`, входит через GitHub → «Каталог» → «Свечи» → «Добавить свечу».
 
