@@ -1,73 +1,133 @@
-# Админка Snowfirefly (Decap CMS). Открывается по адресу https://<сайт>/admin
+# Админка Snowfirefly (Sveltia CMS). Открывается по адресу https://snowfirefly.netlify.app/admin/
+# Вход — через GitHub (OAuth настроен в Netlify). base_url НЕ указывать — тогда используется Netlify.
 backend:
   name: github
   repo: Sahara009/snowfirefly
   branch: main
+  commit_messages:
+    create: "Новая свеча: {{slug}}"
+    update: "Свеча изменена: {{slug}}"
+    delete: "Свеча удалена: {{slug}}"
+    uploadMedia: "Загружен файл {{path}}"
+    deleteMedia: "Удалён файл {{path}}"
 
-locale: ru
-
-# куда кладутся загруженные фото
+# куда кладутся загруженные фото и видео
 media_folder: public/img/uploads
 public_folder: /img/uploads
 
+# фото сами уменьшаются и переводятся в лёгкий WebP при загрузке
+media_libraries:
+  all:
+    max_file_size: 20000000 # 20 МБ на файл
+    transformations:
+      raster_image:
+        format: webp
+        quality: 82
+        width: 1600
+        height: 1600
+
 collections:
-  - name: catalog
-    label: Каталог
+  - name: candles
+    label: Свечи
+    label_singular: свечу
+    description: Каталог на сайте. После сохранения свеча появится на сайте через 1–2 минуты.
+    folder: src/data/products
+    extension: json
+    format: json
+    create: true
+    delete: true
+    slug: "{{uuid_shorter}}"
+    identifier_field: title
+    summary: "{{title}} · {{tag}}"
+    thumbnail: [image, poster]
+    sortable_fields:
+      fields: [order, title, tag]
+      default:
+        field: order
+        direction: ascending
+    view_groups:
+      groups:
+        - name: tag
+          label: Категория
+          field: tag
     editor:
       preview: false
-    files:
-      - name: products
-        label: Свечи
-        file: src/data/products.json
-        format: json
-        fields:
-          - label: Товары
-            name: items
-            widget: list
-            label_singular: свечу
-            summary: "{{fields.title}} · {{fields.tag}}"
-            fields:
-              - label: ID (латиницей, без пробелов, не повторяется)
-                name: id
-                widget: string
-                pattern: ["^[a-z0-9-]+$", "Только маленькие латинские буквы, цифры и дефис, например rose-big"]
-              - { label: Название, name: title, widget: string }
-              - { label: Короткое описание, name: text, widget: text }
-              - label: Категория
-                name: tag
-                widget: select
-                options: ["Цветы", "Букеты", "Десерты", "Фигурные", "Зверята", "Новый год", "В баночках"]
-              - label: Фото (лучше вертикальное, до 1–2 МБ)
-                name: image
-                widget: image
-                required: false
-                choose_url: false
-              - label: Цена, ₸ (пусто — «цена по запросу»)
-                name: price
-                widget: number
-                value_type: int
-                min: 0
-                required: false
-              - label: Показывать в витрине «Коллекции»
-                name: featured
-                widget: boolean
-                default: false
-                required: false
-              - label: Что важнее на фото (кадрирование)
-                name: position
-                widget: select
-                required: false
-                options:
-                  - { label: По центру, value: "50% 50%" }
-                  - { label: Верх, value: "50% 0%" }
-                  - { label: Низ, value: "50% 100%" }
-              - label: Видео (mp4, до 10 МБ, 5–15 секунд; если есть — в витрине покажется вместо фото)
-                name: video
-                widget: file
-                required: false
-                choose_url: false
-              - label: Обложка для видео (картинка, пока видео грузится)
-                name: poster
-                widget: image
-                required: false
-                choose_url: false
+    fields:
+      - label: Название
+        name: title
+        widget: string
+
+      - label: Фото
+        name: image
+        widget: image
+        required: false
+        choose_url: false
+        hint: Лучше вертикальное. Сжимается автоматически.
+
+      - label: Категория
+        name: tag
+        widget: select
+        default: Цветы
+        options: ["Цветы", "Букеты", "Десерты", "Фигурные", "Зверята", "Новый год", "В баночках"]
+
+      - label: Короткое описание
+        name: text
+        widget: text
+        hint: Одно-два предложения, видно под названием.
+
+      - label: Цена, ₸
+        name: price
+        widget: number
+        value_type: int
+        min: 0
+        required: false
+        hint: Если оставить пустым — на сайте будет «цена по запросу».
+
+      - label: Показывать в витрине «Коллекции»
+        name: featured
+        widget: boolean
+        default: false
+        required: false
+
+      - label: Скрыть с сайта
+        name: hidden
+        widget: boolean
+        default: false
+        required: false
+        hint: Например, если свеча закончилась. Включите обратно — снова появится.
+
+      - label: Порядок в каталоге
+        name: order
+        widget: number
+        value_type: int
+        default: 0
+        required: false
+        hint: Чем меньше число, тем выше. 0 — новинки, они в самом начале.
+
+      - label: Что важнее на фото
+        name: position
+        widget: select
+        required: false
+        options:
+          - { label: По центру, value: "50% 50%" }
+          - { label: Верх, value: "50% 0%" }
+          - { label: Низ, value: "50% 100%" }
+
+      - label: Видео (необязательно)
+        name: video
+        widget: file
+        required: false
+        choose_url: false
+        hint: mp4, 5–15 секунд, до 10 МБ. Если есть — в витрине играет вместо фото.
+
+      - label: Обложка для видео (необязательно)
+        name: poster
+        widget: image
+        required: false
+        choose_url: false
+
+      - label: Дата добавления
+        name: created
+        widget: datetime
+        default: "{{now}}"
+        required: false

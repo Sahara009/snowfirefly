@@ -45,26 +45,24 @@ Build command: `STATIC_EXPORT=1 npm run build`, Output directory: `out`, пер�
 
 ## Админка: Настя сама добавляет свечи
 
-Админка — Decap CMS, бесплатная, открывается на `https://<сайт>/admin`.
-Товары хранятся в `src/data/products.json`; админка правит этот файл и коммитит в GitHub,
-Netlify пересобирает сайт — новая свеча появляется через 1–2 минуты.
+Админка — Sveltia CMS (бесплатная, удобная на телефоне, интерфейс на русском), адрес `https://snowfirefly.netlify.app/admin/`.
+Вход через GitHub: OAuth-приложение GitHub подключено в Netlify (Project configuration → Security → OAuth).
 
-Настройка (один раз, ~15 минут):
-1. В `public/admin/config.yml` уже стоит `repo: Sahara009/snowfirefly` (если репозиторий другой — поменять и запушить).
-2. GitHub → Settings → Developer settings → OAuth Apps → New OAuth App:
-   - Homepage URL: `https://snowfirefly.netlify.app`
-   - Authorization callback URL: `https://api.netlify.com/auth/done`
-   Сохранить Client ID и сгенерировать Client Secret.
-3. Netlify → Project configuration → Security → OAuth → Authentication Providers → Install Provider → GitHub → вставить ID и Secret.
-4. У Насти должен быть аккаунт на GitHub; добавить её в репозиторий: Settings → Collaborators → Add people.
-5. Настя открывает `/admin`, входит через GitHub → «Каталог» → «Свечи» → «Добавить свечу».
+Как устроено:
+- Каждая свеча — отдельный файл `src/data/products/<id>.json`. Админка создаёт/правит/удаляет эти файлы и коммитит в GitHub.
+- Перед сборкой скрипт `scripts/build-products.mjs` собирает их в `src/data/products.json`, который читает сайт
+  (запускается сам перед `npm run dev` и `npm run build`).
+- Netlify пересобирает сайт после каждого сохранения — изменения видны через 1–2 минуты.
+- Фото при загрузке автоматически уменьшаются до 1600px и переводятся в WebP.
+- Поля: название, фото, категория, описание, цена (пусто — «цена по запросу»), витрина «Коллекции»,
+  «скрыть с сайта», порядок (0 — новинки в начале), кадрирование, видео, обложка видео, дата.
+- На телефоне: войти один раз на компьютере → в меню профиля «Войти с мобильного» → QR-код.
 
-Советы Насте: фото лучше вертикальные и лёгкие (до 1–2 МБ, можно сжать на squoosh.app),
-ID — латиницей и не повторяться, категория выбирается из списка.
+Доступ новому человеку: репозиторий → Settings → Collaborators → Add people (нужен аккаунт GitHub с правом записи).
 
 ## Корзина и заказ
 
-- Каталог берёт товары из `src/data/products.json` (через `collections` в `src/data/site.ts`).
+- Каталог берёт товары из `src/data/products/*.json` (собираются в `src/data/products.json`, читаются через `collections` в `src/data/site.ts`).
 - `price` — цена в тенге; без цены пишется «цена по запросу». `featured: true` — товар в витрине «Коллекции».
 - «Оформить в Telegram» открывает личный чат Насти `t.me/snownastya` с готовым текстом заказа в поле ввода
   (параметр `?text=`) — покупателю остаётся нажать «Отправить». Текст заодно копируется в буфер.

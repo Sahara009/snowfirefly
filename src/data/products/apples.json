@@ -1,0 +1,9 @@
+{
+  "title": "Яблоки",
+  "text": "Спелые яблоки с настоящим «надкусом».",
+  "tag": "Фигурные",
+  "video": "/video/apple-3.mp4",
+  "poster": "/video/apple-3.jpg",
+  "featured": true,
+  "order": 50
+}
