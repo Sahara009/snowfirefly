@@ -1,8 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "motion/react";
-import { Reveal } from "./Reveal";
+import { ClipReveal, Reveal } from "./Reveal";
 import { SectionTitle } from "./SectionTitle";
 import { corporate, tgLink } from "@/data/site";
 
@@ -19,13 +18,7 @@ export function Corporate() {
         <div className="mt-16 grid gap-14 md:grid-cols-12 md:items-center">
           {/* фото */}
           <div className="relative mx-auto w-full max-w-sm md:col-span-5 md:max-w-none">
-            <motion.div
-              initial={{ clipPath: "inset(100% 0 0 0)" }}
-              whileInView={{ clipPath: "inset(0% 0 0 0)" }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-              className="relative aspect-[4/5] overflow-hidden rounded-t-[999px] rounded-b-[2rem]"
-            >
+            <ClipReveal className="relative aspect-[4/5] overflow-hidden rounded-t-[999px] rounded-b-[2rem]">
               <Image
                 src="/img/box-1.jpg"
                 alt="Коробка со свечами-пионами в подарочной упаковке"
@@ -33,7 +26,7 @@ export function Corporate() {
                 sizes="(min-width:768px) 38vw, 90vw"
                 className="object-cover"
               />
-            </motion.div>
+            </ClipReveal>
             <Reveal
               delay={0.4}
               className="absolute -bottom-6 -right-2 size-36 overflow-hidden rounded-full border-[6px] border-cream md:-right-8 md:size-44"

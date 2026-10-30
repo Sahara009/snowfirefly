@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "motion/react";
+import { ClipReveal } from "./Reveal";
 import { SectionTitle } from "./SectionTitle";
 import { Scallop } from "./Decor";
 import { fireGallery } from "@/data/site";
@@ -22,16 +22,10 @@ export function FireGallery() {
 
         <div className="mt-16 columns-2 gap-4 md:columns-3 md:gap-6">
           {fireGallery.map((g, i) => (
-            <motion.div
+            <ClipReveal
               key={g.src}
-              initial={{ clipPath: "inset(100% 0 0 0)", scale: 1.1 }}
-              whileInView={{ clipPath: "inset(0% 0 0 0)", scale: 1 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{
-                duration: 1.2,
-                delay: (i % 4) * 0.12,
-                ease: [0.22, 1, 0.36, 1],
-              }}
+              zoom
+              delay={(i % 2) * 0.12}
               className={`relative mb-4 break-inside-avoid overflow-hidden rounded-3xl border-4 border-white/10 md:mb-6 ${
                 i % 3 === 0 ? "aspect-[3/4]" : "aspect-[4/5]"
               }`}
@@ -43,7 +37,7 @@ export function FireGallery() {
                 sizes="(min-width:768px) 33vw, 50vw"
                 className="object-cover transition-transform duration-[1400ms] hover:scale-105"
               />
-            </motion.div>
+            </ClipReveal>
           ))}
         </div>
       </div>

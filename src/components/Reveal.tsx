@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "motion/react";
+import { motion, useInView, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 import { useReady } from "./Ready";
 
@@ -53,7 +53,11 @@ export function Parallax({
   );
 }
 
-/** Заголовок, который выезжает по словам */
+/**
+ * Заголовок, который выезжает по словам.
+ * Следим за видимостью всей строки (обёртки), а не каждого спрятанного слова:
+ * Safari на iPhone считает спрятанное слово «невидимым» и иногда не запускает анимацию.
+ */
 export function Words({
   text,
   className,
@@ -66,12 +70,13 @@ export function Words({
   inView?: boolean;
 }) {
   const ready = useReady();
-  const anim = inView
-    ? { whileInView: { y: 0 }, viewport: { once: true, margin: "-60px" } }
-    : { animate: ready ? { y: 0 } : { y: "115%" } };
+  const ref = useRef<HTMLSpanElement>(null);
+  const seen = useInView(ref, { once: true, margin: "0px 0px -40px 0px" });
+  const show = inView ? seen : ready;
+  const words = text.split(" ");
   return (
-    <span className={className} aria-label={text}>
-      {text.split(" ").map((w, i) => (
+    <span ref={ref} className={className} aria-label={text}>
+      {words.map((w, i) => (
         <span
           key={i}
           aria-hidden
@@ -80,14 +85,50 @@ export function Words({
           <motion.span
             className="inline-block"
             initial={{ y: "115%" }}
-            {...anim}
+            animate={{ y: show ? 0 : "115%" }}
             transition={{ duration: 1, delay: delay + i * 0.1, ease }}
           >
             {w}
-            {i < text.split(" ").length - 1 ? " " : ""}
+            {i < words.length - 1 ? "\u00a0" : ""}
           </motion.span>
         </span>
       ))}
     </span>
+  );
+}
+
+/**
+ * Фото, которое «проявляется» снизу вверх.
+ * Видимость отслеживается по внешнему блоку, который всегда виден (надёжно на iPhone).
+ * Внутренний слой — absolute inset-0, поэтому className должен задавать размер (aspect-*).
+ */
+export function ClipReveal({
+  children,
+  className,
+  delay = 0,
+  zoom = false,
+}: {
+  children: React.ReactNode;
+  className?: string;
+  delay?: number;
+  zoom?: boolean;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  const seen = useInView(ref, { once: true, margin: "0px 0px -40px 0px" });
+  return (
+    <div ref={ref} className={className}>
+      <motion.div
+        className="absolute inset-0"
+        initial={{ clipPath: "inset(100% 0% 0% 0%)", scale: zoom ? 1.1 : 1 }}
+        animate={
+          seen
+            ? { clipPath: "inset(0% 0% 0% 0%)", scale: 1 }
+            : { clipPath: "inset(100% 0% 0% 0%)", scale: zoom ? 1.1 : 1 }
+        }
+        transition={{ duration: 1.2, delay, ease }}
+      >
+        {children}
+      </motion.div>
+    </div>
   );
 }
