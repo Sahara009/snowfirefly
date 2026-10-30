@@ -1,9 +1,14 @@
 {
   "title": "Ёлочные игрушки",
-  "text": "Свечи в виде винтажных ёлочных игрушек — с петелькой, можно повесить на ёлку.",
+  "image": "",
   "tag": "Новый год",
+  "text": "Свечи в виде винтажных ёлочных игрушек — с петелькой, можно повесить на ёлку.",
+  "price": 5500,
+  "featured": true,
+  "hidden": false,
+  "order": 5,
+  "position": "",
   "video": "/video/ornaments-1.mp4",
   "poster": "/video/ornaments-1.jpg",
-  "featured": true,
-  "order": 5
+  "created": "2026-10-30T22:32:00"
 }
