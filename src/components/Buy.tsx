@@ -3,6 +3,7 @@
 import { Reveal } from "./Reveal";
 import { SectionTitle } from "./SectionTitle";
 import { places } from "@/data/site";
+import { Zarya } from "./Zarya";
 
 export function Buy() {
   return (
@@ -28,6 +29,8 @@ export function Buy() {
             </Reveal>
           ))}
         </div>
+
+        <Zarya />
       </div>
     </section>
   );

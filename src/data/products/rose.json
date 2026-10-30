@@ -4,5 +4,6 @@
   "tag": "Цветы",
   "image": "/img/rose.jpg",
   "featured": true,
-  "order": 20
+  "order": 20,
+  "price": 5000
 }

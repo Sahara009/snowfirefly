@@ -4,5 +4,6 @@
   "tag": "Зверята",
   "image": "/img/cats-trio.jpg",
   "position": "50% 100%",
-  "order": 80
+  "order": 80,
+  "price": 4500
 }

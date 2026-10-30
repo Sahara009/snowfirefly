@@ -5,6 +5,7 @@ import { motion } from "motion/react";
 import { Reveal } from "./Reveal";
 import { SectionTitle } from "./SectionTitle";
 import { Scallop } from "./Decor";
+import { LoopVideo } from "./LoopVideo";
 import { unboxing, pets, contacts, tgLink } from "@/data/site";
 
 export function Gifts() {
@@ -13,7 +14,7 @@ export function Gifts() {
       id="gifts"
       className="relative scroll-mt-16 overflow-hidden bg-blush py-24 md:py-36"
     >
-      <Scallop color="#e7f1dc" size={44} />
+      <Scallop color="#fdf3ea" size={44} />
       <div className="mx-auto grid max-w-7xl items-center gap-16 px-5 md:grid-cols-2 md:px-8">
         <div>
           <SectionTitle
@@ -92,13 +93,17 @@ export function Gifts() {
                 style={{ rotate: `${(i % 2 ? 6 : -6)}deg` }}
               />
               <div className="relative aspect-[4/5] overflow-hidden">
-              <Image
-                src={u.src}
-                alt={u.alt}
-                fill
-                sizes="(min-width:768px) 22vw, 45vw"
-                className="object-cover"
-              />
+                {u.video ? (
+                  <LoopVideo src={u.video} poster={u.src} className="absolute inset-0 size-full object-cover" />
+                ) : (
+                  <Image
+                    src={u.src}
+                    alt={u.alt}
+                    fill
+                    sizes="(min-width:768px) 22vw, 45vw"
+                    className="object-cover"
+                  />
+                )}
               </div>
             </motion.div>
           ))}

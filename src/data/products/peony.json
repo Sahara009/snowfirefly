@@ -4,5 +4,6 @@
   "tag": "Цветы",
   "image": "/img/peony-lit.jpg",
   "featured": true,
-  "order": 10
+  "order": 10,
+  "price": 360
 }

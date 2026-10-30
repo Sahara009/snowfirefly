@@ -3,5 +3,7 @@
   "text": "Новогодняя россыпь с дольками и белым налётом.",
   "tag": "Новый год",
   "image": "/img/mandarins.jpg",
-  "order": 100
+  "order": 100,
+  "price": 2500,
+  "featured": true
 }

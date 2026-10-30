@@ -7,6 +7,7 @@ import { Menagerie } from "@/components/Menagerie";
 import { Catalog } from "@/components/Catalog";
 import { FireGallery } from "@/components/FireGallery";
 import { Apples } from "@/components/Apples";
+import { NewYear } from "@/components/NewYear";
 import { Gifts } from "@/components/Gifts";
 import { Corporate } from "@/components/Corporate";
 import { Buy } from "@/components/Buy";
@@ -25,6 +26,7 @@ export default function Home() {
         <Menagerie />
         <FireGallery />
         <Apples />
+        <NewYear />
         <Gifts />
         <Corporate />
         <Buy />

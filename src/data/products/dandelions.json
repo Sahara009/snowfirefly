@@ -3,5 +3,6 @@
   "text": "Солнечный букет, перевязанный лентой.",
   "tag": "Букеты",
   "image": "/img/dandelions.jpg",
-  "order": 30
+  "order": 30,
+  "price": 9000
 }

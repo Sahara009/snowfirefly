@@ -8,6 +8,7 @@ export const contacts = {
   telegramNastya: "https://t.me/snownastya", // личный чат — сюда приходят заказы
   // TODO: проверить ник инстаграма Насти
   instagram: "https://instagram.com/snowfirefly",
+  zarya: "https://www.instagram.com/zarya_jewelry_/", // второй бренд Насти: украшения и брелоки
 };
 
 export const waLink = (text: string) =>
@@ -73,10 +74,10 @@ export const pets = [
   { src: "/img/pet-dog.jpg", alt: "Собачка с игрушкой-морковкой" },
 ];
 
-export const unboxing = [
+export const unboxing: { src: string; alt: string; rotate: number; video?: string }[] = [
   { src: "/img/box-cat.jpg", alt: "Коробка с открыткой", rotate: -5 },
   { src: "/img/peonies-wrap.jpg", alt: "Пионы в переливающейся плёнке с бантиками", rotate: 4 },
-  { src: "/img/box-2.jpg", alt: "Свечи в прозрачных пакетиках с ленточками", rotate: 3 },
+  { src: "/video/unboxing.jpg", video: "/video/unboxing.mp4", alt: "Как упаковывается заказ", rotate: 3 },
   { src: "/img/thank-you.jpg", alt: "Стикер Thank you на коробке", rotate: -4 },
   { src: "/img/bow-wrap.jpg", alt: "Посылка со стикерами-бантиками", rotate: -2 },
   { src: "/img/postcard.jpg", alt: "Открытка и спички", rotate: 5 },

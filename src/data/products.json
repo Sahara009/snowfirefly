@@ -1,12 +1,23 @@
 {
   "items": [
     {
+      "title": "Ёлочные игрушки",
+      "text": "Свечи в виде винтажных ёлочных игрушек — с петелькой, можно повесить на ёлку.",
+      "tag": "Новый год",
+      "video": "/video/ornaments-1.mp4",
+      "poster": "/video/ornaments-1.jpg",
+      "featured": true,
+      "order": 5,
+      "id": "ornaments"
+    },
+    {
       "title": "Пионы",
       "text": "Свечи-бутоны: у каждого свои лепестки и свой характер.",
       "tag": "Цветы",
       "image": "/img/peony-lit.jpg",
       "featured": true,
       "order": 10,
+      "price": 360,
       "id": "peony"
     },
     {
@@ -16,6 +27,7 @@
       "image": "/img/rose.jpg",
       "featured": true,
       "order": 20,
+      "price": 5000,
       "id": "rose"
     },
     {
@@ -24,6 +36,7 @@
       "tag": "Букеты",
       "image": "/img/dandelions.jpg",
       "order": 30,
+      "price": 9000,
       "id": "dandelions"
     },
     {
@@ -34,6 +47,7 @@
       "position": "50% 100%",
       "featured": true,
       "order": 40,
+      "price": 3500,
       "id": "tarts"
     },
     {
@@ -44,6 +58,7 @@
       "poster": "/video/apple-3.jpg",
       "featured": true,
       "order": 50,
+      "price": 5500,
       "id": "apples"
     },
     {
@@ -52,6 +67,7 @@
       "tag": "Фигурные",
       "image": "/img/pears.jpg",
       "order": 60,
+      "price": 1800,
       "id": "pears"
     },
     {
@@ -62,6 +78,7 @@
       "position": "50% 50%",
       "featured": true,
       "order": 70,
+      "price": 2500,
       "id": "sheep"
     },
     {
@@ -71,6 +88,7 @@
       "image": "/img/cats-trio.jpg",
       "position": "50% 100%",
       "order": 80,
+      "price": 4500,
       "id": "cats"
     },
     {
@@ -80,6 +98,7 @@
       "image": "/img/frog.jpg",
       "featured": true,
       "order": 90,
+      "price": 3500,
       "id": "frog"
     },
     {
@@ -88,6 +107,8 @@
       "tag": "Новый год",
       "image": "/img/mandarins.jpg",
       "order": 100,
+      "price": 2500,
+      "featured": true,
       "id": "mandarins"
     },
     {
@@ -96,6 +117,7 @@
       "tag": "Новый год",
       "image": "/img/snowman-cookie.jpg",
       "order": 110,
+      "price": 2500,
       "id": "snowman"
     },
     {
@@ -104,6 +126,7 @@
       "tag": "В баночках",
       "image": "/img/autumn-jars.jpg",
       "order": 120,
+      "price": 6500,
       "id": "autumn"
     }
   ]

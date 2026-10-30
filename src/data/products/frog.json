@@ -4,5 +4,6 @@
   "tag": "Зверята",
   "image": "/img/frog.jpg",
   "featured": true,
-  "order": 90
+  "order": 90,
+  "price": 3500
 }

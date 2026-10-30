@@ -3,5 +3,6 @@
   "text": "Аромат печенья. Высота 4 см, диаметр 7 см.",
   "tag": "Новый год",
   "image": "/img/snowman-cookie.jpg",
-  "order": 110
+  "order": 110,
+  "price": 2500
 }
