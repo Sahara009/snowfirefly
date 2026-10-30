@@ -1,10 +1,14 @@
 {
   "title": "Яблоки",
-  "text": "Спелые яблоки с настоящим «надкусом».",
+  "image": "",
   "tag": "Фигурные",
-  "video": "/video/apple-3.mp4",
-  "poster": "/video/apple-3.jpg",
+  "text": "Спелые яблоки с настоящим «надкусом».",
+  "price": 5500,
   "featured": true,
+  "hidden": false,
   "order": 50,
-  "price": 5500
+  "position": "",
+  "video": "/video/apple-3.mp4",
+  "poster": "/img/uploads/IMG_1162.webp",
+  "created": "2026-10-31T00:04:00"
 }
