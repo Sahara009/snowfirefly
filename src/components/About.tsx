@@ -24,7 +24,7 @@ export function About() {
             <div className="relative aspect-[4/5] overflow-hidden">
               <Image
                 src="/img/nastya.jpg"
-                alt="Анастасия, создатель бренда Snowfirefly, с десертными свечами"
+                alt="Анастасия, создатель бренда Snowfirefly, с подарочной коробкой Snowfirefly"
                 fill
                 sizes="(min-width:768px) 36vw, 90vw"
                 className="object-cover"
