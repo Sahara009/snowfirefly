@@ -64,7 +64,7 @@ Build command: `STATIC_EXPORT=1 npm run build`, Output directory: `out`, пер�
 
 - Каталог берёт товары из `src/data/products/*.json` (собираются в `src/data/products.json`, читаются через `collections` в `src/data/site.ts`).
 - `price` — цена в тенге; без цены пишется «цена по запросу». `featured: true` — товар в витрине «Коллекции».
-- «Оформить в Telegram» открывает личный чат Насти `t.me/snownastya` с готовым текстом заказа в поле ввода
+- «Оформить в Telegram» открывает личный чат Насти `t.me/snow_firefly` с готовым текстом заказа в поле ввода
   (параметр `?text=`) — покупателю остаётся нажать «Отправить». Текст заодно копируется в буфер.
   Запасная ссылка — WhatsApp. Ник и номер — в `contacts` в `src/data/site.ts`.
 - Корзина сохраняется в браузере посетителя (localStorage).

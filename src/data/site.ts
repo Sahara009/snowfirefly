@@ -5,7 +5,7 @@ export const contacts = {
   phoneDisplay: "+7 700 251 74 16",
   whatsapp: "https://wa.me/77002517416",
   telegram: "https://t.me/snowfirefly", // канал
-  telegramNastya: "https://t.me/snownastya", // личный чат — сюда приходят заказы
+  telegramNastya: "https://t.me/snow_firefly", // личный чат — сюда приходят заказы
   // TODO: проверить ник инстаграма Насти
   instagram: "https://instagram.com/snowfirefly",
   zarya: "https://www.instagram.com/zarya_jewelry_/", // второй бренд Насти: украшения и брелоки
@@ -54,11 +54,11 @@ export const collections: Collection[] = (products as unknown as { items: Collec
 
 export const fireGallery = [
   { src: "/img/rose-flame.jpg", alt: "Свеча-роза с горящим фитилём" },
-  { src: "/img/tarts-flame.jpg", alt: "Горящая малиновая свеча-тарталетка" },
-  { src: "/img/peony-flame.jpg", alt: "Горящая свеча среди пионов" },
-  { src: "/img/rose-close.jpg", alt: "Лепестки свечи-розы крупным планом" },
-  { src: "/img/apple-close.jpg", alt: "Свеча-яблоко крупным планом" },
-  { src: "/img/peonies-field.jpg", alt: "Поле свечей-пионов" },
+  { src: "/img/ranunculus-flame.jpg", alt: "Горящая жёлтая свеча-ранункулюс в руке" },
+  { src: "/img/dandelion-flame.jpg", alt: "Горящая свеча-одуванчик в стеклянной банке" },
+  { src: "/img/calla-flame.jpg", alt: "Горящие свечи-каллы у окна" },
+  { src: "/img/rose-box.jpg", alt: "Горящая свеча-роза с лентой Just for you и коробкой Snowfirefly" },
+  { src: "/img/rose-petals.jpg", alt: "Лепестки розовой свечи-розы крупным планом" },
 ];
 
 export const menagerie = {
